@@ -60,8 +60,6 @@ class HStoreSerializer(ModelSerializer):
         # TODO: TypedChoiceField?
         if model_field.flatchoices:  # This ModelField contains choices
             kwargs['choices'] = model_field.flatchoices
-            if model_field.null:
-                kwargs['empty'] = None
             return (ChoiceField, kwargs)
 
         # put this below the ChoiceField because min_value isn't a valid initializer
